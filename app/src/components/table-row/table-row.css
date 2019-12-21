@@ -1,0 +1,12 @@
+button.not-btn {
+    background: black;
+    border: 2px solid gray;
+}
+button.not-btn:hover {
+    background: gray;
+    color: black;
+    border: 2px solid black;
+}
+button.delete-btn:hover {
+    background: red;
+}
