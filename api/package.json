@@ -2,10 +2,10 @@
   "name": "authentication-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "userdb": "nodemon ./src/main",
-    "persondb": "nodemon ./src/_db/persons-db/server",
+    "userdb": "nodemon ./src/_config/main",
+    "persondb": "nodemon ./src/server-person",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -21,7 +21,9 @@
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
+    "koa-route": "^3.2.0",
     "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
     "mongoose": "^5.8.2",
     "sequelize": "^5.21.3",
     "sequelize-cli": "^5.5.0",
