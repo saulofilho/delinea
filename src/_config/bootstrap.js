@@ -1,4 +1,4 @@
-const server = require('../server-user');
+const server = require('../server');
 
 module.exports = () => {
     server();

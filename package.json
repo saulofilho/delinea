@@ -4,8 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "userdb": "nodemon ./src/_config/main",
-    "persondb": "nodemon ./src/server-person",
+    "server": "nodemon ./src/_config/main",
+    "persondb": "nodemon ./src/server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
