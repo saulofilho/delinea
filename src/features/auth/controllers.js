@@ -1,10 +1,10 @@
-const Boom = require('boom')
-const Validator = require('fastest-validator')
-const jwt = require('jsonwebtoken')
+const Boom = require('boom');
+const Validator = require('fastest-validator');
+const jwt = require('jsonwebtoken');
 
-const services = require('./services')
+const services = require('./services');
 
-const v = new Validator()
+const v = new Validator();
 
 module.exports = {
     auth: async ctx => {
@@ -31,4 +31,4 @@ module.exports = {
             response.body = { result: Boom.unauthorized() }
         }
     }
-}
+};
