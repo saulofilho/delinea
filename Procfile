@@ -1,1 +1,1 @@
-web: npm run server
+web: node ./src/_config/main
