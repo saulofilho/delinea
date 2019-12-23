@@ -1,2 +1,2 @@
-web: node ./src/_config/main
-web: node ./src/server-person
+main: node ./src/_config/main
+person: node ./src/server-person
