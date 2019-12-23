@@ -31,7 +31,6 @@ module.exports = () => {
   app.use(route.get('*', index))
 };
 
-
 // express server, crud react app
 // mongodb
 require('dotenv/config');
