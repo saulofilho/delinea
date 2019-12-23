@@ -24,7 +24,7 @@ module.exports = () => {
   app.listen(port);
 
   app.use(static(path.resolve('build')));
-  function* index() {
+  function * index() {
     this.body = fs.readFileSync(path.resolve(path.join('build', 'index.html')), 'utf8')
   };
 
