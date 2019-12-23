@@ -1,0 +1,28 @@
+.container h3 {
+    text-align: center;
+}
+.box-group {
+    border: 2px solid black;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+.form-group {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.form-group label {
+    text-align: right;
+    margin-right: 2rem;
+}
+div.pad-top {
+    padding-top: 10px;
+}
+#inp-btn {
+    background: black;
+    border: 2px solid gray;
+}
+#inp-btn:hover {
+    background: gray;
+    color: black;
+    border: 2px solid black;
+}
