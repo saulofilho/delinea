@@ -26,12 +26,13 @@ app.listen(port, function () {
     .use(router.routes())
     .use(router.allowedMethods());
 
-  app.use(static(path.resolve(__dirname, 'build')));
+  app.use(static(__dirname, 'build'));
+
   function * index() {
-    this.body = fs.readFileSync(path.resolve(path.join(__dirname, 'build', 'index.html')), 'utf8')
+    this.body = fs.readFileSync(path.join(__dirname, 'build', 'index.html'), 'utf8');
   };
 
-  app.use(route.get('*', index))
+  app.use(route.get('*', index));
 });
 
 // express server, crud react app
@@ -68,7 +69,6 @@ appE.listen(portE, function () {
   console.log('Servidor PERSON rodando na porta: ' + portE);
 
   appE.use(express.static(path.join(__dirname, 'build')));
-
 
   appE.get('/*', (req, res) => {
     res.sendFile(pathE.join(__dirname, 'build', 'index.html'));
