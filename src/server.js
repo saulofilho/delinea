@@ -11,7 +11,7 @@ const route = require('koa-route');
 const applyRoutes = require('./_config/routes');
 const bodyParser = require('koa-bodyparser');
 const cors = require('@koa/cors');
-const port = process.env.PORTuser;
+const port = process.env.PORTuser || 8080;
 
 const app = new Koa();
 const router = new Router();
@@ -26,13 +26,12 @@ app.listen(port, function () {
     .use(router.routes())
     .use(router.allowedMethods());
 
-  app.use(static(__dirname, 'build'));
-
-  function * index() {
-    this.body = fs.readFileSync(path.join(__dirname, 'build', 'index.html'), 'utf8');
+  app.use(static(path.resolve(__dirname, '/build')));
+  function* index() {
+    this.body = fs.readFileSync(path.resolve(path.join(__dirname, '/build', '/index.html')), 'utf8')
   };
 
-  app.use(route.get('*', index));
+  app.use(route.get('*', index))
 });
 
 // express server, crud react app
@@ -41,7 +40,7 @@ const express = require('express');
 const corsE = require('cors');
 const appE = express();
 const mongoose = require('mongoose');
-const portE = process.env.PORT;
+const portE = process.env.PORT || 4000;
 const personRoute = require('./_db/persons-db/person.route');
 const pathE = require('path');
 
@@ -68,9 +67,10 @@ appE.use('/person', personRoute);
 appE.listen(portE, function () {
   console.log('Servidor PERSON rodando na porta: ' + portE);
 
-  appE.use(express.static(path.join(__dirname, 'build')));
+  appE.use(express.static(path.join(__dirname, '/build')));
+
 
   appE.get('/*', (req, res) => {
-    res.sendFile(pathE.join(__dirname, 'build', 'index.html'));
+    res.sendFile(pathE.join(__dirname, '/build', '/index.html'));
   });
 });
