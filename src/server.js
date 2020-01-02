@@ -11,7 +11,7 @@ const route = require('koa-route');
 const applyRoutes = require('./_config/routes');
 const bodyParser = require('koa-bodyparser');
 const cors = require('@koa/cors');
-const port = process.env.PORTuser || 8080;
+const port = process.env.PORTuser;
 
 const app = new Koa();
 const router = new Router();
@@ -41,7 +41,7 @@ const express = require('express');
 const corsE = require('cors');
 const appE = express();
 const mongoose = require('mongoose');
-const portE = process.env.PORT || 4000;
+const portE = process.env.PORT;
 const personRoute = require('./_db/persons-db/person.route');
 const pathE = require('path');
 
