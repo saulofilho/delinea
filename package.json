@@ -2,9 +2,9 @@
   "name": "authentication-api",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "server.js",
   "scripts": {
-    "server": "nodemon ./src/_config/main",
+    "server": "nodemon ./src/server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
