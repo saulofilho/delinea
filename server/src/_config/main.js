@@ -1,2 +1,2 @@
-const bs = require('./bootstrap');
-bs();
+// const bs = require('./bootstrap');
+// bs();
