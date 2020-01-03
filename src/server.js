@@ -26,9 +26,9 @@ app.listen(port, function () {
     .use(router.routes())
     .use(router.allowedMethods());
 
-  app.use(static(path.resolve(__dirname, '/build')));
+  app.use(static(path.resolve(__dirname, './src/build')));
   function* index() {
-    this.body = fs.readFileSync(path.resolve(path.join(__dirname, '/build', '/index.html')), 'utf8')
+    this.body = fs.readFileSync(path.resolve(path.join(__dirname, './src/build', 'index.html')), 'utf8')
   };
 
   app.use(route.get('*', index))
@@ -67,10 +67,10 @@ appE.use('/person', personRoute);
 appE.listen(portE, function () {
   console.log('Servidor PERSON rodando na porta: ' + portE);
 
-  appE.use(express.static(path.join(__dirname, '/build')));
+  appE.use(express.static(path.join(__dirname, './src/build')));
 
 
-  appE.get('/*', (req, res) => {
-    res.sendFile(pathE.join(__dirname, '/build', '/index.html'));
+  appE.get('*', (req, res) => {
+    res.sendFile(pathE.join(__dirname, './src/build', 'index.html'));
   });
 });
