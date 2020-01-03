@@ -26,9 +26,9 @@ app.listen(port, function () {
     .use(router.routes())
     .use(router.allowedMethods());
 
-  app.use(static(path.resolve(__dirname, './build')));
+  app.use(static(path.resolve(__dirname, 'build')));
   function* index() {
-    this.body = fs.readFileSync(path.resolve(path.join(__dirname, './build', 'index.html')), 'utf8')
+    this.body = fs.readFileSync(path.resolve(path.join(__dirname, 'build', 'index.html')), 'utf8')
   };
 
   app.use(route.get('*', index))
@@ -64,13 +64,22 @@ mongoose
 
 appE.use('/person', personRoute);
 
-appE.listen(portE, function () {
-  console.log('Servidor PERSON rodando na porta: ' + portE);
+// appE.listen(portE, function () {
+//   console.log('Servidor PERSON rodando na porta: ' + portE);
 
-  appE.use(express.static(path.join(__dirname, './build')));
+//   appE.use(express.static(path.join(__dirname, 'build')));
 
+//   appE.get('/*', (req, res) => {
+//     res.sendFile(pathE.join(__dirname, 'build', 'index.html'));
+//   });
+// });
 
-  appE.get('*', (req, res) => {
-    res.sendFile(pathE.join(__dirname, './build', 'index.html'));
-  });
+appE.use(express.static(path.join(__dirname, 'build')));
+
+appE.use(express.static(__dirname));
+appE.get('/*', (req, res) => {
+  res.sendFile(pathE.join(__dirname, 'build', 'index.html'));
 });
+
+appE.listen(portE);
+console.log('Servidor PERSON rodando na porta: ' + portE);
